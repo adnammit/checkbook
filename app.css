@@ -8,7 +8,7 @@ body {
 .checkbook {
     background: #333;
     color: #e8e8e8;
-    width: 700px;
+    width: 500px;
     margin: 70px auto;
     box-shadow: 0 4px 0px #333;
     border-radius: 5px;
@@ -29,9 +29,12 @@ body {
     font-size: 1.5em;
     letter-spacing: 3px;
     font-weight: normal;
+    font-family: georgia;
 }
+/*
+.header .transactions {
 
-.header .transactions,
+}*/
 /*.header .stopwatch {
 width: 170px;*/
 }
@@ -42,66 +45,33 @@ width: 170px;*/
 
 .transactions {
     margin-top: 0;
-    font-weight: normal;
+
+}
+
+.transactions td {
+    font-size: .7em;
+    text-align: right;
+    letter-spacing: 2px;
 }
 
 .transactions td:first-child {
-    text-align: right;
     font-weight: normal;
-    letter-spacing: 2px;
     color: #666;
-    font-size: .7em;
 }
 
 .transactions td:last-child {
-    text-align: right;
     padding: 0px 20px;
+    font-size: 1.2em;
+    font-family: courier;
+    font-weight: bold;
 }
-
-/*.stopwatch {
-padding: 15px 10px 5px 10px;
-margin: -5px -10px -5px 10px;
-background: #2f2f2f;
-border-radius: 0 15px 0 0;
-}
-
-.stopwatch-time {
-font-family: monospace;
-font-size: 2em;
-}
-
-.stopwatch button {
-margin: 8px 5px;
-background-color: #222;
-border-radius: 5px;
-padding: 7px 8px;
-border: none;
-color: #999;
-letter-spacing: 2px;
-font-weight: bold;
-text-shadow: none;
-text-transform: uppercase;
-}
-
-.stopwatch button:hover {
-background: #4b71b5;
-color: #fafafa;
-cursor: pointer;
-}
-
-.stopwatch h2 {
-font-size: .6em;
-margin: 0;
-font-weight: normal;
-letter-spacing: 2px;
-color: #666;
-}*/
 
 .item {
     display: flex;
     font-size: 0.9em;
     border-bottom: solid 2px #444;
     letter-spacing: 2px;
+    width: 100%;
 }
 
 .item-remove {
@@ -114,22 +84,20 @@ color: #666;
     width: 20px;
 }
 
-/*.item-amount:hover .remove-item {
-    visibility: visible;
-}*/
-
 .item:hover .item-remove {
     visibility: visible;
+}
+
+.item-date {
+    padding: 10px;
+    width: 100px;
 }
 
 .item-name {
     flex-grow: 1;
     padding: 10px;
-}
-
-.item-date {
-    flex-grow: 1;
-    padding: 10px;
+    text-align: left;
+    width: auto;
 }
 
 .item-amount {
@@ -137,53 +105,9 @@ color: #666;
     color: #666;
     background: #ccc;
     padding: 10px;
+    font-family: courier;
+    font-weight: bold;
 }
-/*
-.counter {
-display: flex;
-}
-
-.counter-action {
-border: none;
-font-weight: bold;
-color: #FAFAFA;
-display: block;
-padding: 20px 20px;
-cursor: pointer;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
-.counter-action.increment {
-background: #66BB6A;
-}
-
-.counter-action.increment:hover {
-background: #549d59;
-cursor: pointer;
-}
-
-.counter-action.decrement {
-background: #ef5350;
-}
-
-.counter-action.decrement:hover {
-background: #c44442;
-cursor: pointer;
-}
-
-.counter-score {
-flex-grow: 1;
-background: #2b2b2b;
-color: #FAFAFA;
-text-align: center;
-font-family: monospace;
-padding: 10px;
-font-size: 2em;
-}*/
-
 
 .add-transaction-form form {
     display: flex;
@@ -192,7 +116,7 @@ font-size: 2em;
 }
 
 .add-transaction-form input[type=text] {
-    flex-grow: 1;
+
     border-width: 0 0 1px 0;
     margin: 15px 10px 15px 15px;
     padding: 10px;
@@ -206,8 +130,13 @@ font-size: 2em;
     outline: none;
 }
 
-.add-transaction-form .input-amount {
-    width: 25%;
+.add-transaction-form #input-name {
+    flex-grow: 1;
+
+}
+
+.add-transaction-form #input-amount {
+    width: 70px;
 }
 
 .add-transaction-form input[type=text]::-webkit-input-placeholder{

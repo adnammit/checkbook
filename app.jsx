@@ -1,3 +1,7 @@
+// import React from 'react';
+// import deleteImg from './img/x.png';
+//
+
 var TRANSACTIONS = [
 	{
 		name: "pizza",
@@ -34,8 +38,10 @@ var AddTransactionForm = React.createClass({
 
 	getInitialState: function() {
 		return {
-			name: "",
-			amount: null,
+			def_name: "Description",
+			name: "Description",
+			def_amount: "Amount",
+			amount: "Amount",
 			date: "",
 		};
 	},
@@ -43,28 +49,67 @@ var AddTransactionForm = React.createClass({
 	onSubmit: function(e) {
 		e.preventDefault();
 		this.props.onAdd(this.state.name,this.state.amount);
-		this.setState({amount: null});
-		this.setState({name: ""});
+		/* this.setState({name: "Description"}); */
+		this.setState({def_name: "Description"});
+		this.setState({name: def_name});
+		this.setState({def_amount: "Amount"});
+		this.setState({amount: def_amount});
 		this.setState({date: ""});
 	},
 
 	onAmountChange: function(e) {
 		console.log(e.target.value);
 		this.setState({amount: e.target.value});
+		/*this.setState({amount: amount}); */
 	},
 
 	onNameChange: function(e) {
 		console.log(e.target.value);
 		this.setState({name: e.target.value});
+		/*this.setState({_name: name});*/
+	},
+
+	onNameFocus: function(e) {
+		console.log(e.target.value);
+		if(e.target.value=="Description")
+		{
+			this.setState({name: ""});
+		}
+	},
+
+	onNameBlur: function(e) {
+		console.log(e.target.value);
+		if(e.target.value=="")
+		{
+			this.setState({name: "Description"});
+		}
+		/*this.setState({name: e.target.value});*/
+	},
+
+	onAmountFocus: function(e) {
+		console.log(e.target.value);
+		if(e.target.value=="Amount")
+		{
+			this.setState({amount: ""});
+		}
+	},
+
+	onAmountBlur: function(e) {
+		console.log(e.target.value);
+		if(e.target.value=="")
+		{
+			this.setState({amount: "Amount"});
+		}
+		/*this.setState({name: e.target.value});*/
 	},
 
 	render: function() {
 		return (
 			<div className="add-transaction-form">
 				<form onSubmit={this.onSubmit}>
-					<input classname="input-name" type="text" value={this.state.name} onChange={this.onNameChange}/>
-					<input classname="input-amount" type="text" value={this.state.amount} onChange={this.onAmountChange}/>
-					<input type="submit" value="Add Transaction" />
+					<input type="text" id="input-name" value={this.state.name} onChange={this.onNameChange} onFocus={this.onNameFocus} onBlur={this.onNameBlur} />
+					<input id="input-amount" type="text" value={this.state.amount} onChange={this.onAmountChange} onFocus={this.onAmountFocus} onBlur={this.onAmountBlur} />
+					<input type="submit" value="Add" />
 				</form>
 			</div>
 		);
@@ -88,6 +133,7 @@ function Transactions (props) {
 		</table>
 	);
 }
+
 Transactions.propTypes = {
 	items: React.PropTypes.array.isRequired,
 };
@@ -106,6 +152,7 @@ Header.propTypes = {
 };
 
 function Item (props) {
+
 	return (
 		<div className="item">
 			<div className="item-date">
@@ -195,4 +242,4 @@ var Application = React.createClass ({
 	}
 });
 
-ReactDOM.render(<Application initialItems={TRANSACTIONS} title="My Checkbook"/>, document.getElementById('container'));
+ReactDOM.render(<Application initialItems={TRANSACTIONS} title="Money Time"/>, document.getElementById('container'));
