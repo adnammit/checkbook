@@ -5,11 +5,36 @@ body {
     text-transform: uppercase;
 }
 
+a {
+    font-size: 0.6em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #444;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ccc;
+}
+
+a:visited {
+    color: #444;
+}
+
+a.selected, a:hover {
+    color: #888;
+}
+
+.git-link {
+    align: center;
+    padding: 0px;
+}
+
 .checkbook {
     background: #333;
     color: #e8e8e8;
     width: 500px;
-    margin: 70px auto;
+    margin: 70px auto 10px;
     box-shadow: 0 4px 0px #333;
     border-radius: 5px;
 }
@@ -31,21 +56,9 @@ body {
     font-weight: normal;
     font-family: georgia;
 }
-/*
-.header .transactions {
-
-}*/
-/*.header .stopwatch {
-width: 170px;*/
-}
-
-/*.transactions {
-    font-size: 0.2em;
-}*/
 
 .transactions {
     margin-top: 0;
-
 }
 
 .transactions td {
